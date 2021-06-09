@@ -6,7 +6,7 @@
 
 <br>
 
-```react 
+```jsx
 const App = () => {
   return ()
 }
@@ -15,10 +15,13 @@ const App = () => {
 <br>
 
 ### Tasks.js
+>Keys help React identify which items have changed, are added, or are removed.
+>Keys should be given to the elements inside the array to give the elements a stable identity
+> >JSX allows embedding any expression in curly braces so we could inline the map() result.
 
 <br>
 
-```react
+```jsx
 const Tasks = ( {tasks} ) => {
   return (
     <>
@@ -26,6 +29,23 @@ const Tasks = ( {tasks} ) => {
         <Task key={task.id} task={task} />
       )}
     </>
+  )
+}
+```
+
+<br>
+
+###Task.js
+
+<br>
+
+```jsx
+const Task = ({task}) => {
+  return (
+    <div className='task'
+      <h3>{task.task} <FaTimes /></h3>
+      <p>{task.day} </p>
+    </div>
   )
 }
 ```
