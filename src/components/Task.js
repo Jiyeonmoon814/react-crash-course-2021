@@ -1,11 +1,11 @@
 import { FaTimes } from 'react-icons/fa';
 import { FaEdit } from 'react-icons/fa';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import EditTask from './EditTask';
 
 const Task = ({task , onDelete, onToggle, onEdit}) => {
     const [showEditTask, setShowEditTask] = useState(false)
-    const [hidden, setHidden] = useState(task.hidden)
 
     return (
         <div className={`task ${task.reminder ? 'reminder' : ''}`} onDoubleClick={()=>onToggle(task.id)}>
@@ -18,6 +18,7 @@ const Task = ({task , onDelete, onToggle, onEdit}) => {
                 </div>
             </h3>
             <p>{task.day}</p>
+            <p><Link to={`/task/${task.id}`}>View Detais</Link></p>
             <div> {showEditTask && <EditTask task={task} onEdit={onEdit} /> }</div>
         </div>
     )
